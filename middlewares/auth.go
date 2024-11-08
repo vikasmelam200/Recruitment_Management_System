@@ -24,8 +24,7 @@ func AuthMiddleware() gin.HandlerFunc {
 			c.Abort()
 			return
 		}
-		userType := claims.UserType
-		c.Set("user_type", userType)
+		userType := "Applicant"
 		c.Set("user_type", userType)
 		c.Next()
 	}
