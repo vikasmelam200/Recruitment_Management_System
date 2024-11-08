@@ -132,7 +132,7 @@ func UploadResume(c *gin.Context) {
 // -----------------------------------user createjob function function is here -------------------------------------------
 // -----------------------------------------------------------------------------------------------------------------------
 func CreateJob(c *gin.Context) {
-	userType, exists := c.Get("user_type")
+	userType, exists := c.Get("user_types")
 	if !exists || userType != "Admin" {
 		c.JSON(http.StatusForbidden, gin.H{"error": "Only admins can create job openings."})
 		return
@@ -172,7 +172,7 @@ func GetJobDetails(c *gin.Context) {
 		Applicants  []Applicant `json:"applicants"`
 	}
 
-	userType, exists := c.Get("user_type")
+	userType, exists := c.Get("user_types")
 	if !exists || userType != "Admin" {
 		c.JSON(http.StatusForbidden, gin.H{"error": "Only admins can view job details."})
 		return
@@ -194,7 +194,7 @@ func GetJobDetails(c *gin.Context) {
 // -----------------------------------GetAllApplications function function is here -------------------------------------------
 // ---------------------------------------------------------------------------------------------------------------------------
 func GetAllApplicants(c *gin.Context) {
-	userType, exists := c.Get("user_type")
+	userType, exists := c.Get("user_types")
 	if !exists || userType != "Admin" {
 		c.JSON(http.StatusForbidden, gin.H{"error": "Only Admins can access this endpoint."})
 		return
@@ -213,7 +213,7 @@ func GetAllApplicants(c *gin.Context) {
 // -----------------------------------------------------------------------------------------------------------------------------
 func GetApplicantDetails(c *gin.Context) {
 
-	userType, exists := c.Get("user_type")
+	userType, exists := c.Get("user_types")
 	if !exists || userType != "Admin" {
 		c.JSON(http.StatusForbidden, gin.H{"error": "Only Admins can access this endpoint."})
 		return

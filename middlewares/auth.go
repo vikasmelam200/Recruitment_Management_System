@@ -26,6 +26,8 @@ func AuthMiddleware() gin.HandlerFunc {
 		}
 		userType := "Applicant"
 		c.Set("user_type", userType)
+		userTypes := "Admin"
+		c.Set("user_types", userTypes)
 		c.Next()
 	}
 }
